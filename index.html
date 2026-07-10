@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅遊意見調查</title>
+    <meta
+      name="description"
+      content="旅遊意見調查表單，歡迎填寫您的旅行建議與偏好。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-card">
+        <p class="eyebrow">旅遊體驗調查</p>
+        <h1>分享您的下一趟旅遊想法</h1>
+        <p class="hero-copy">
+          請填寫以下表單，我們將依據您的意見，打造更適合您的旅遊體驗。
+        </p>
+        <div class="highlights" aria-label="調查亮點">
+          <span>🌿 風景優先</span>
+          <span>🧭 交通便利</span>
+          <span>🏕️ 旅遊體驗</span>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <form
+          name="travel-survey"
+          method="POST"
+          action="/thank-you.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="travel-survey" />
+          <p class="hidden">
+            <label>
+              不要填寫：
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid">
+            <label class="field">
+              <span>姓名</span>
+              <input type="text" name="name" placeholder="請輸入姓名" required />
+            </label>
+
+            <label class="field">
+              <span>聯絡電話</span>
+              <input type="text" name="phone" placeholder="請輸入手機或市話" required inputmode="tel" />
+            </label>
+
+            <label class="field">
+              <span>信箱</span>
+              <input type="email" name="email" placeholder="example@email.com" required />
+            </label>
+
+            <label class="field">
+              <span>日期</span>
+              <input type="date" name="travel-date" required />
+            </label>
+
+            <label class="field">
+              <span>地點</span>
+              <select name="location" required>
+                <option value="">請選擇</option>
+                <option value="台北">台北</option>
+                <option value="台中">台中</option>
+                <option value="高雄">高雄</option>
+                <option value="台東">台東</option>
+                <option value="花蓮">花蓮</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>方式</span>
+              <select name="travel-method" required>
+                <option value="">請選擇</option>
+                <option value="露營">露營</option>
+                <option value="健走">健走</option>
+                <option value="正常">正常</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid compact-grid">
+            <fieldset class="field">
+              <legend>性別</legend>
+              <div class="radio-group">
+                <label><input type="radio" name="gender" value="男" required /> 男</label>
+                <label><input type="radio" name="gender" value="女" /> 女</label>
+              </div>
+            </fieldset>
+
+            <label class="field">
+              <span>參加人數</span>
+              <select name="participants" required>
+                <option value="">請選擇</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>備註</span>
+            <textarea
+              name="notes"
+              rows="5"
+              maxlength="200"
+              placeholder="如有其他需求，請在此填寫"
+            ></textarea>
+          </label>
+
+          <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+          <button type="submit">回覆</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
